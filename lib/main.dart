@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:components_1/src/pages/home_temp.dart';
  
 void main() => runApp(MyApp());
  
@@ -6,16 +7,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Material App',
+      title: 'Components App',
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Material App Bar'),
+          title: Center(child: Text('Components App Bar')),
         ),
-        body: Center(
-          child: Container(
-            child: Text('Hello World'),
-          ),
-        ),
+        body:  HomePageTemp()
       ),
     );
   }
