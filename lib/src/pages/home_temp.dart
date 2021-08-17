@@ -28,17 +28,19 @@ class HomePageTemp extends StatelessWidget {
   // }
 
   List<Widget> _createListShort() {
-    var widgets = options.map((item) => Column(
-      children: [
-        ListTile(
-              title: Text(item),
-              leading: Icon(Icons.ac_unit_outlined),
-              trailing: Icon(Icons.access_alarm),
-              onTap: (){},
-            ),
-      Divider()
-      ],
-    )).toList();
+    var widgets = options
+        .map((item) => Column(
+              children: [
+                ListTile(
+                  title: Text(item),
+                  leading: Icon(Icons.account_balance_wallet),
+                  trailing: Icon(Icons.keyboard_arrow_right),
+                  onTap: () {},
+                ),
+                Divider()
+              ],
+            ))
+        .toList();
     return widgets;
   }
 }
