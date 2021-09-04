@@ -11,6 +11,10 @@ class _InputsPageState extends State<InputsPage> {
   String _password = "";
   String _date = "";
 
+  String _optionseleted = "Comer";
+
+  List<String> _powers = ["volar", "Correr", "dormir"];
+
   TextEditingController _inputFieldDateController = new TextEditingController();
 
   @override
@@ -29,6 +33,8 @@ class _InputsPageState extends State<InputsPage> {
           _createInputPassword(),
           Divider(),
           _createDate(context),
+          Divider(),
+          _createDropdown(),
           Divider(),
           _createPerson(),
         ],
@@ -62,6 +68,7 @@ class _InputsPageState extends State<InputsPage> {
     return ListTile(
       title: Text("this Name is $_name"),
       subtitle: Text("this email $_email"),
+      trailing: Text("this is seleted $_optionseleted"),
     );
   }
 
@@ -131,5 +138,41 @@ class _InputsPageState extends State<InputsPage> {
         _inputFieldDateController.text = _date;
       });
     }
+  }
+
+  _createDropdown() {
+    if (_optionseleted == null) {
+      _optionseleted = _powers[0];
+    }
+    return Row(
+      children: [
+        Icon(Icons.select_all),
+        SizedBox(
+          width: 30.0,
+        ),
+        Expanded(
+          child: DropdownButton(
+              // hint: Text(_optionseleted),
+              value: _optionseleted,
+              items: getoptions(),
+              onChanged: (item) {
+                setState(() {
+                  _optionseleted = item;
+                });
+              }),
+        ),
+      ],
+    );
+  }
+
+  List<DropdownMenuItem<String>> getoptions() {
+    List<DropdownMenuItem<String>> list = [];
+    _powers.forEach((power) {
+      list.add(DropdownMenuItem(
+        child: Text(power),
+        value: power,
+      ));
+    });
+    return list;
   }
 }
