@@ -141,27 +141,14 @@ class _InputsPageState extends State<InputsPage> {
   }
 
   _createDropdown() {
-    if (_optionseleted == null) {
-      _optionseleted = _powers[0];
-    }
-    return Row(
-      children: [
-        Icon(Icons.select_all),
-        SizedBox(
-          width: 30.0,
-        ),
-        Expanded(
-          child: DropdownButton(
-              // hint: Text(_optionseleted),
-              value: _optionseleted,
-              items: getoptions(),
-              onChanged: (item) {
-                setState(() {
-                  _optionseleted = item;
-                });
-              }),
-        ),
-      ],
+    // if (_optionseleted == null) {
+    //   _optionseleted = _powers[0];
+    // }
+    return DropdownButton<dynamic>(
+      items: getoptions(),
+      onChanged: (opt) {
+        print(opt);
+      },
     );
   }
 
